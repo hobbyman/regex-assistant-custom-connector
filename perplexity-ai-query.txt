@@ -1,0 +1,51 @@
+Write me C# Custom Connector that takes a phoneNumber parameter and uses RegEx to convert it to this format: (999)-999-9999
+
+The operation id is : formatPhoneNumber
+
+Here is some sample code to base off of:
+
+public override async Task<HttpResponseMessage> ExecuteAsync()
+{
+    // Check if the operation ID matches what is specified in the OpenAPI definition of the connector
+    if (this.Context.OperationId == "RegexIsMatch")
+    {
+        return await this.HandleRegexIsMatchOperation().ConfigureAwait(false);
+    }
+
+    // Handle an invalid operation ID
+    HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.BadRequest);
+    response.Content = CreateJsonContent($"Unknown operation ID '{this.Context.OperationId}'");
+    return response;
+}
+
+private async Task<HttpResponseMessage> HandleRegexIsMatchOperation()
+{
+    HttpResponseMessage response;
+
+    // We assume the body of the incoming request looks like this:
+    // {
+    //   "textToCheck": "<some text>",
+    //   "regex": "<some regex pattern>"
+    // }
+    var contentAsString = await this.Context.Request.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+    // Parse as JSON object
+    var contentAsJson = JObject.Parse(contentAsString);
+
+    // Get the value of text to check
+    var textToCheck = (string)contentAsJson["textToCheck"];
+
+    // Create a regex based on the request content
+    var regexInput = (string)contentAsJson["regex"];
+    var rx = new Regex(regexInput);
+
+    JObject output = new JObject
+    {
+        ["textToCheck"] = textToCheck,
+        ["isMatch"] = rx.IsMatch(textToCheck),
+    };
+
+    response = new HttpResponseMessage(HttpStatusCode.OK);
+    response.Content = CreateJsonContent(output.ToString());
+    return response;
+}
