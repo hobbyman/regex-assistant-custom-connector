@@ -18,7 +18,7 @@ There are two ways to install the connector:
 4. Select **Custom connectors** in the left navigation.
 5. Select **+ New customer connector > Import an OpenAPI from URL**.
    * Enter **CSV Magic** as Connector name.
-   * Copy and paste this URL: `https://raw.githubusercontent.com/hobbyman/zip-file-connector/master/apiDefinition.json`
+   * Copy and paste this URL: `https://raw.githubusercontent.com/hobbyman/regex-assistant-custom-connector/main/RegEx-Assistant.swagger.json`
 6. Select **Import** then select **Continue**.
 7. Select **Code** in the navigation dropdown.
 8. Flip the switch to **Code Enabled**.
