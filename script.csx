@@ -8,9 +8,9 @@ public class Script : ScriptBase
             return await this.HandleFormatPhoneNumberOperation().ConfigureAwait(false);
         }
         if (this.Context.OperationId == "checkEmail")
-		{
-		    return await this.HandleCheckEmailOperation().ConfigureAwait(false);
-		}
+	{
+	    return await this.HandleCheckEmailOperation().ConfigureAwait(false);
+	}
 
         // Handle an invalid operation ID
         HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.BadRequest);
