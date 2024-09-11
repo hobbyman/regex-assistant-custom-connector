@@ -12,7 +12,7 @@ There are two ways to install the connector:
 
 ## Manual Installation
 
-1. Download [script.csx](https://raw.githubusercontent.com/hobbyman/zip-file-connector/master/script.csx) (click on **... > Download** in the top right-hand corner).
+1. Download [script.csx](https://raw.githubusercontent.com/hobbyman/regex-assistant-custom-connector/main/script.csx) (click on **... > Download** in the top right-hand corner).
 2. Sign in to [https://make.powerapps.com](https://make.powerapps.com).
 3. Select target environment.
 4. Select **Custom connectors** in the left navigation.
