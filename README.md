@@ -1,8 +1,8 @@
-# Zip File custom connector for Power Platform
+# RegEx Assistant custom connector for Power Platform
 
 This is simple code-based connector where the method is entirely contained within the custom code block.
 
-Purpose of the connector is to take is zip file manipulations from Power Automate.
+This connector has a couple of requests to check/validate input.
 
 <!--
 ## Installation
@@ -53,46 +53,37 @@ What do you need?
 
 
 ## Methods
-* <mark>CreateZip</mark>
-* <mark>ExtractZip</mark> (not yet implemented)
+* <mark>checkEmail</mark>
+* <mark>formatPhoneNumber</mark>
 
 
+### checkEmail Parameters
+* Email - string - what it says
 
-### CreateZip Parameters
-
-* File Array - string - example below
+#### checkEmail output
+The output will be JSON formatted in the following way:
+```json
+{
+  "inputEmail" : "<your-input-email>",
+  "valid"      : <boolean>
+}
 ```
-[
-    {
-        "filename" : "blah.txt",
-        "content"  : "base64-encoding-of-the-file"
-    },
-    {
-        "filename" : "whatever.jpg",
-        "content"  : "base64-encoding-of-the-file"
-    }
-]
+
+### formatPhoneNumber Parameters
+* Phone Number - string - what it says
+
+#### formatPhoneNumber output
+The output will be JSON formatted in the following way:
+```json
+{
+  "originalPhoneNumber"  : "<your-input-phone-number>",
+  "formattedPhoneNumber" : "<formatted-phone-number>"
+}
 ```
-* Zip File Name - string - what it says
-
-#### Getting the base64 encoding of a file in Sharepoint
-Go to this [nice article](https://manueltgomes.com/reference/power-automate-action-reference/sharepoint-get-file-content-action/) for start. Basically, you need to get the output of **Get file content** into a variable or compose. BUT, pay attention, you need to get the **$content**; that's what will need to go into the **content** property in the **File Array**
-
-
 
 ## URLs used for my discovery and testing
-- MemoryStream from Base64 - https://stackoverflow.com/a/31524620
+- **YouTube Video that started this** - [https://stackoverflow.com/a/31524620](https://www.youtube.com/watch?v=9sVl16bwx6w)
     - also, https://stackoverflow.com/a/25919641
-- JObject/JPropery - https://www.codeproject.com/Questions/5257437/Dynamically-keep-adding-jarray-value-to-jobject
-- **This one is the main idea for createZipNew() and createZipFromArray()** - https://learn.microsoft.com/en-us/answers/questions/741047/zip-file-created-directly-from-memorystream-is-emp
-- idea for passing in an array via the Swagger definition - https://stackoverflow.com/a/54443363
-- Swagger Editor Next - https://editor-next.swagger.io/
-- Swagger Editor - https://editor.swagger.io/
-- Encode FileStream to Base64 (not sure this is needed) - https://stackoverflow.com/a/46223990
-- **Iterate over a JArray** - https://stackoverflow.com/a/41810862
-- **Custom Connector from Code** - https://learn.microsoft.com/en-us/connectors/custom-connectors/write-code
-- **THE Code example I need for returning a Zip file ** - https://github.com/microsoft/PowerPlatformConnectors/blob/b051dd9e1bd7cef1a140de0983c4c6a244dc7d39/custom-connectors/CopilotForFinanceCommunications/script.csx#L376
-- Convert JSON String to JArray - https://www.codeproject.com/Questions/1140760/How-to-convert-to-json-string-to-json-array
-- Simple create Zip File with one file - https://stackoverflow.com/a/43120552
-- **In Memory Zip Files** - https://code-maze.com/csharp-create-a-zip-file-in-memory/
-- **Where this whole idea started** - https://tachytelic.net/2024/06/create-zip-file-power-automate/
+- Email RegEx - https://www.tutorialsteacher.com/regex/frequently-used-regex-patterns
+- RegEx match - https://stackoverflow.com/a/9853682
+- perplexity.ai AI query - https://www.perplexity.ai/search/write-me-c-custom-connector-th-T0FjsokcRpCWBJmEWX8RYQ
