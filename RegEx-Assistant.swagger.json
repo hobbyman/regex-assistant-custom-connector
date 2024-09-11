@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "RegEx Assistant",
+    "description": "Regular expression data parsing",
+    "version": "1.0"
+  },
+  "host": "home",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {},
+    "/checkEmail": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "inputEmail": {
+                  "type": "string",
+                  "description": "inputEmail"
+                },
+                "valid": {
+                  "type": "boolean",
+                  "description": "valid"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Check email validity",
+        "description": "Check whether or not an email is proper",
+        "operationId": "checkEmail",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Email": {
+                  "type": "string",
+                  "description": "Email"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/formatPhoneNumber": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Format a phone number",
+        "description": "Remove cruft from input and return properly formatted phone number",
+        "operationId": "formatPhoneNumber",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Phone Number": {
+                  "type": "string",
+                  "description": "Phone Number"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
