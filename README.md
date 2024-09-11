@@ -82,8 +82,7 @@ The output will be JSON formatted in the following way:
 ```
 
 ## URLs used for my discovery and testing
-- **YouTube Video that started this** - [https://stackoverflow.com/a/31524620](https://www.youtube.com/watch?v=9sVl16bwx6w)
-    - also, https://stackoverflow.com/a/25919641
+- **YouTube Video that started this** - https://www.youtube.com/watch?v=9sVl16bwx6w
 - Email RegEx - https://www.tutorialsteacher.com/regex/frequently-used-regex-patterns
 - RegEx match - https://stackoverflow.com/a/9853682
 - perplexity.ai AI query - https://www.perplexity.ai/search/write-me-c-custom-connector-th-T0FjsokcRpCWBJmEWX8RYQ
